@@ -46,6 +46,9 @@ class CompanyTestCase(TestCase):
 
     """
 
+    LIST_URL = "/companies/"
+    DETAIL_URL = "/companies/1/"
+
     EXPECTED_COMPANY_RESPONSE = {
         "id": 1,
         "name": "BP",  # abbreviated name is displayed, not the long name
@@ -67,6 +70,16 @@ class CompanyTestCase(TestCase):
         "email": "sample@text.com",
         "phone_number": "02134567890",
         "trades": ["oil extraction", "oil refining"],
+        "bank_accounts": [
+            {
+                "account_number": "12345678",
+                "company": 1,
+                "id": 1,
+                "sort_code": "123456",
+                "type": "business",
+            }
+        ],
+        "tax_infos": [{"company": 1, "id": 1, "type": "ssn", "value": "AAAGGSSSS"}],
     }
 
     @classmethod
@@ -125,7 +138,7 @@ class CompanyTestCase(TestCase):
         tax_info.save()
 
     def test_list(self):
-        response = self.client.get("/companies/")
+        response = self.client.get(self.LIST_URL)
         assert response.status_code == 200
         expected_data = [self.EXPECTED_COMPANY_RESPONSE]
 
@@ -133,7 +146,7 @@ class CompanyTestCase(TestCase):
         assert actual_data == expected_data
 
     def test_get(self):
-        response = self.client.get("/companies/1/")
+        response = self.client.get(self.DETAIL_URL)
         assert response.status_code == 200
         expected_data = self.EXPECTED_COMPANY_RESPONSE
 
@@ -146,7 +159,7 @@ class CompanyTestCase(TestCase):
         """
         payload = {"email": "new_email_address@gmail.com"}
         response = self.client.patch(
-            "/companies/1/", data=payload, content_type="application/json"
+            self.DETAIL_URL, data=payload, content_type="application/json"
         )
         assert response.status_code == 200
         expected_data = (
