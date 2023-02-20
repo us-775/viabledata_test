@@ -24,7 +24,7 @@ api_schema_urlpatterns = [
 
 
 urlpatterns = [
+    path("", include("companies.urls")),
     path("admin/", admin.site.urls),
-    path("companies/", include("companies.urls")),
     *api_schema_urlpatterns,
 ]
