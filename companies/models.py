@@ -20,9 +20,11 @@ class Company(models.Model):
 
 
 class CompanyTrade(models.Model):
+    LEVEL_BASIC = "basic"
+    LEVEL_ADVANCED = "advanced"
     LEVEL_CHOICES = [
-        ("basic", "Basic"),
-        ("advanced", "Advanced"),
+        (LEVEL_BASIC, "Basic"),
+        (LEVEL_ADVANCED, "Advanced"),
     ]
 
     company = ForeignKey(Company, on_delete=models.CASCADE, related_name="trades")
@@ -36,11 +38,14 @@ class CompanyTrade(models.Model):
 
 
 class Address(models.Model):
-    ADDRESS_TYPES = [
-        ("office", "Office"),
-        ("billing", "billing"),
+    TYPE_OFFICE = "office"
+    TYPE_BILLING = "billing"
+    TYPES = [
+        (TYPE_OFFICE, "Office"),
+        (TYPE_BILLING, "billing"),
     ]
     company = ForeignKey(Company, on_delete=models.CASCADE, related_name="addresses")
+    type = CharField(max_length=7, choices=TYPES, default=TYPE_OFFICE)
     contact_name = CharField(max_length=100, blank=True, default="")
     value = CharField(max_length=300)
 
@@ -49,9 +54,11 @@ class Address(models.Model):
 
 
 class TaxInfo(models.Model):
+    TYPE_NINO = "nino"
+    TYPE_SSN = "ssn"
     TYPES = [
-        ("nino", "National Insurance number"),
-        ("ssn", "Social Security number"),
+        (TYPE_NINO, "National Insurance number"),
+        (TYPE_SSN, "Social Security number"),
     ]
 
     company = ForeignKey(Company, on_delete=models.CASCADE, related_name="tax_infos")
@@ -60,14 +67,17 @@ class TaxInfo(models.Model):
 
 
 class BankAccount(models.Model):
+    TYPE_PERSONAL = "personal"
+    TYPE_BUSINESS = "business"
     TYPES = [
-        ("personal", "Personal"),
-        ("business", "Business"),
+        (TYPE_PERSONAL, "Personal"),
+        (TYPE_BUSINESS, "Business"),
     ]
 
     company = ForeignKey(
         Company, on_delete=models.CASCADE, related_name="bank_accounts"
     )
+    type = CharField(max_length=8, choices=TYPES)
     account_number = CharField(max_length=8)
     sort_code = CharField(max_length=6)
 

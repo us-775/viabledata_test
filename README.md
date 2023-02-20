@@ -15,7 +15,8 @@ Navigate to `http://localhost:8000/api/` to view the API schema
 
 ### Run tests
 ```
-python3 manage.py test
+export DJANGO_SETTINGS_MODULE=viabledata.settings
+pytest
 ```
 
 ## Notes
@@ -25,9 +26,9 @@ python3 manage.py test
 
 ## Assumptions made
 
-## What I would add with more time
-* Users/authentication
-* Validation to the fields. Examples:
+## What I would change with more time
+* Add a users app and a custom users model depending on what the project requirements are.
+* Add validation to the fields. Examples:
   * Sort code should be 6 digits
   * National Insurance number should follow the rules (regex-based validation would be sufficient)
-* A static type checker such as `mypy` to enforce type safety. I didn't add it because getting it to behave with Django takes a bit of time and I didn't want to spend extra time doing that. 
+* Add a static type checker such as `mypy` to enforce type safety. I didn't add it because getting it to behave with Django takes a bit of time and I didn't want to spend extra time doing that. 
