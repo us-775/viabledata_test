@@ -38,6 +38,7 @@ pytest
 
 ## What I would change with more time
 * Add a users app and a custom users model depending on what the project requirements are.
+* Add a test for company creation
 * The application only supports updating fields on the company model (such as email address, name etc.), not any of the related models like bank accounts, trades, tax info etc. Adding support for that would involve creating DRF viewsets for each of the models so in the interest of saving time, I opted to not do this.
 * Add validation to the fields. Examples:
   * Sort code should be 6 digits
