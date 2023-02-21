@@ -3,38 +3,6 @@ from django.test import TestCase
 from companies.models import (Address, BankAccount, Company, CompanyTrade,
                               CoveredPostcode, TaxInfo)
 
-"""
-tests to write
-
-# Company
-- create
-- get
-- patch
-- name
-- another company's address cannot be accessed
-
-# office address
-- create
-- get
-- patch
-
-# bank account
-- create
-- get
-- patch
-
-# trades
-- create
-- get
-- patch
-
-search
-- search on trades
-    - qualification levels
-- search on post code coverage
-
-"""
-
 
 class CompanyTestCase(TestCase):
     """
