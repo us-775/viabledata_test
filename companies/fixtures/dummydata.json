@@ -1,0 +1,119 @@
+[
+{
+  "model": "companies.company",
+  "pk": 1,
+  "fields": {
+    "long_name": "McDonald's",
+    "short_name": "",
+    "email": "dasds@dasd.com",
+    "phone_number": "02839123",
+    "history": "Formed by Ronnie"
+  }
+},
+{
+  "model": "companies.company",
+  "pk": 2,
+  "fields": {
+    "long_name": "Burgir King",
+    "short_name": "",
+    "email": "ddnais@dasdsadsad.com",
+    "phone_number": "0843985834",
+    "history": "Eat like a king since 1495"
+  }
+},
+{
+  "model": "companies.companytrade",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "trade": "plumbing",
+    "note": "",
+    "level": "basic"
+  }
+},
+{
+  "model": "companies.companytrade",
+  "pk": 2,
+  "fields": {
+    "company": 1,
+    "trade": "electricity",
+    "note": "",
+    "level": "basic"
+  }
+},
+{
+  "model": "companies.companytrade",
+  "pk": 3,
+  "fields": {
+    "company": 2,
+    "trade": "hello",
+    "note": "",
+    "level": "advanced"
+  }
+},
+{
+  "model": "companies.address",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "type": "office",
+    "contact_name": "Ronnie",
+    "value": "293 Street"
+  }
+},
+{
+  "model": "companies.address",
+  "pk": 2,
+  "fields": {
+    "company": 1,
+    "type": "office",
+    "contact_name": "Ron",
+    "value": "9 Road 10"
+  }
+},
+{
+  "model": "companies.address",
+  "pk": 3,
+  "fields": {
+    "company": 2,
+    "type": "office",
+    "contact_name": "King Kunta",
+    "value": "100 Boulevard Avenue"
+  }
+},
+{
+  "model": "companies.taxinfo",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "type": "ssn",
+    "value": "HSSUIHD8"
+  }
+},
+{
+  "model": "companies.bankaccount",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "type": "business",
+    "account_number": "01234567",
+    "sort_code": "012345"
+  }
+},
+{
+  "model": "companies.coveredpostcode",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "post_code": "E144EF"
+  }
+},
+{
+  "model": "companies.coveredpostcode",
+  "pk": 2,
+  "fields": {
+    "company": 1,
+    "post_code": "BS70DL"
+  }
+}
+]
