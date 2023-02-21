@@ -5,15 +5,6 @@ from companies.models import (Address, BankAccount, Company, CompanyTrade,
 
 
 class CompanyTestCase(TestCase):
-    """
-    - create
-    - get
-    - patch
-    - name
-    - another company's address cannot be accessed
-
-    """
-
     LIST_URL = "/companies/"
     DETAIL_URL = "/companies/1/"
 
