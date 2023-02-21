@@ -52,6 +52,9 @@ class CompanyTestCase(TestCase):
     EXPECTED_COMPANY_RESPONSE = {
         "id": 1,
         "name": "BP",  # abbreviated name is displayed, not the long name
+        "email": "sample@text.com",
+        "phone_number": "02134567890",
+        "history": "Formed in 1560",
         "addresses": [
             {
                 "company": 1,
@@ -67,8 +70,6 @@ class CompanyTestCase(TestCase):
             },
         ],
         "covered_postcodes": ["SW11 2AA"],
-        "email": "sample@text.com",
-        "phone_number": "02134567890",
         "trades": ["oil extraction", "oil refining"],
         "bank_accounts": [
             {
@@ -99,6 +100,7 @@ class CompanyTestCase(TestCase):
             short_name="BP",
             email="sample@text.com",
             phone_number="02134567890",
+            history="Formed in 1560",
         )
         company_1.save()
 
@@ -155,9 +157,9 @@ class CompanyTestCase(TestCase):
 
     def test_partial_update(self):
         """
-        Update the email address
+        Update the email address and history
         """
-        payload = {"email": "new_email_address@gmail.com"}
+        payload = {"email": "new_email_address@gmail.com", "history": "Formed in 1950"}
         response = self.client.patch(
             self.DETAIL_URL, data=payload, content_type="application/json"
         )
@@ -166,5 +168,6 @@ class CompanyTestCase(TestCase):
             self.EXPECTED_COMPANY_RESPONSE
         )  # everything else should be the same
         expected_data["email"] = "new_email_address@gmail.com"
+        expected_data["history"] = "Formed in 1950"
         actual_data = response.json()
         assert actual_data == expected_data

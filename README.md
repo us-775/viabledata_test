@@ -24,7 +24,6 @@ pytest
 * I used `black`, `isort` and `autoflake` for linting. In a real project these would be configured using a pyproject.toml file and be a part of pre-commit hooks. The result would be that all committed code would automatically be linted in a consistent way, avoiding unimportant discussions over code formatting.
 * The deserialized representation of a company is quite big and extensive. It could be simpler – for example, instead of the `tax_infos` value being an array of tax info objects which contain the id, company ID, type (NINO or SSN), value, it could simply be an array of the values. This would depend on how the API is intended to be used by the client. Also, there is no reason why we couldn't have multiple serializers for the company object which would each be used depending on the use case. This would help ensure the application is performant and doesn't waste database queries or have an unnecessarily large payload size. 
 * There is a `prefetch_related` added to the company view so Django will join the relevant tables when fetching the objects from the database. This prevents the need for multiple queries which would slow down the API.
-* I didn't understand what "Company history" meant, so I've ignored it
 
 ## Assumptions made
 

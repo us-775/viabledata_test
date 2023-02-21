@@ -7,6 +7,7 @@ class Company(models.Model):
     short_name = CharField(max_length=50, blank=True, default="")
     email = CharField(max_length=100)
     phone_number = CharField(max_length=15)
+    history = TextField(max_length=500, blank=True, default="", help_text="Information about the history of the company")
 
     def __str__(self):
         return f"{self.name} (id {self.id})"

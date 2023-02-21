@@ -64,6 +64,7 @@ class CompanySerializer(ModelSerializer):
             "name",
             "email",
             "phone_number",
+            "history",
             "addresses",
             "trades",
             "covered_postcodes",
