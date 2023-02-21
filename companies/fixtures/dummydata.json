@@ -7,18 +7,18 @@
     "short_name": "",
     "email": "dasds@dasd.com",
     "phone_number": "02839123",
-    "history": "Formed by Ronnie"
+    "history": "Created by Ronald McDonald"
   }
 },
 {
   "model": "companies.company",
   "pk": 2,
   "fields": {
-    "long_name": "Burgir King",
+    "long_name": "Burger King",
     "short_name": "",
     "email": "ddnais@dasdsadsad.com",
     "phone_number": "0843985834",
-    "history": "Eat like a king since 1495"
+    "history": "Sample test"
   }
 },
 {
@@ -46,7 +46,7 @@
   "pk": 3,
   "fields": {
     "company": 2,
-    "trade": "hello",
+    "trade": "carpentry",
     "note": "",
     "level": "advanced"
   }
@@ -57,7 +57,7 @@
   "fields": {
     "company": 1,
     "type": "office",
-    "contact_name": "Ronnie",
+    "contact_name": "John Smith",
     "value": "293 Street"
   }
 },
@@ -67,8 +67,8 @@
   "fields": {
     "company": 1,
     "type": "office",
-    "contact_name": "Ron",
-    "value": "9 Road 10"
+    "contact_name": "Sandra Jones",
+    "value": "9 Road"
   }
 },
 {
@@ -77,7 +77,7 @@
   "fields": {
     "company": 2,
     "type": "office",
-    "contact_name": "King Kunta",
+    "contact_name": "Jose Gasol",
     "value": "100 Boulevard Avenue"
   }
 },

@@ -1,9 +1,13 @@
 # Viable Data tech test
 ## Setup for running applications and tests
 Navigate to the `viabledata` root directory (the same one this file is in)
-Activate virtual environment and install dependencies
+Create and activate virtual environment
 ```
-source ../venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
+```
+Install dependencies
+```
 pip3 install -r requirements.txt
 ```
 
